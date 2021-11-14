@@ -13,5 +13,8 @@
  */
 
 return [
-    // ...
+  'db' => [
+    'driver' => 'Pdo',
+    'dsn'    => sprintf('sqlite:%s/data/mygallery.db', realpath(getcwd())),
+  ],
 ];

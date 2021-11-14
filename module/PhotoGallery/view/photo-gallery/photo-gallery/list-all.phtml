@@ -1,0 +1,31 @@
+<?php
+  $title = 'Awesome Photo Gallery';
+  $this->headTitle($title);
+?>
+
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('photo-gallery', ['action' => 'add']) ?>">Add new awesome photo to our gallery!</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Caption</th>
+    <th>Alt</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($photos as $photo) : ?>
+    <tr>
+        <td><img src="/upload/img/thumbnail/<?= $photo->img_name ?>" alt="<?= $this->escapeHtml($photo->alt) ?>"></td>
+        <td><?= $this->escapeHtml($photo->title) ?></td>
+        <td><?= $this->escapeHtml($photo->caption) ?></td>
+        <td><?= $this->escapeHtml($photo->alt) ?></td>
+        <td>
+            <a href="<?= $this->url('photo-gallery', ['action' => 'edit', 'id' => $photo->id]) ?>">Edit</a>
+            <a href="<?= $this->url('photo-gallery', ['action' => 'delete', 'id' => $photo->id]) ?>">Delete</a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>

@@ -1,3 +1,13 @@
+#how to start project in 2 steps
+
+run this commands
+```bash
+$ sqlite3 mygallery.db -init schema.sql
+```
+```bash
+$ php -S 0.0.0.0:8080 -t public
+```
+
 # laminas-mvc-skeleton
 
 ## Introduction

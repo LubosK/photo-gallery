@@ -1,0 +1,44 @@
+<?php
+  $title = 'Awesome Photo Gallery';
+  $this->headTitle($title);
+?>
+
+<div class="text-center">
+  <h1><?= $this->escapeHtml($title) ?></h1>
+  <a href="<?= $this->url('photo-gallery', ['action' => 'add']) ?>">Add new awesome photo to our gallery!</a>
+</div>
+
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+
+  <!-- Inner -->
+  <div class="carousel-inner">
+    <?php foreach ($photos as $key => $photo) : ?>
+      <?php $active = $key === 0 ? 'active' : ''; ?>
+      <div class="carousel-item <?= $active ?>">
+        <img
+          src="/upload/img/<?= $photo->img_name ?>" 
+          class="d-block w-100"
+          alt="<?= $this->escapeHtml($photo->alt) ?>"
+        >
+        <div class="carousel-caption d-none d-md-block">
+          <h5><?= $this->escapeHtml($photo->title) ?></h5>
+          <p><?= $this->escapeHtml($photo->caption) ?></p>
+        </div>
+      </div>
+    <?php endforeach; ?>
+    </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

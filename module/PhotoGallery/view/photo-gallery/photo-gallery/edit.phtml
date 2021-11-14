@@ -1,0 +1,23 @@
+<?php
+  $title = 'Edit Photo information';
+  $this->headTitle($title);
+?>
+
+<div class="text-center">
+  <h1><?= $this->escapeHtml($title) ?></h1>
+  <h2 class="mt-5">Maybe later Alligator :)</h2>
+  <img src="<?= $this->basePath('img/alligator.png') ?>" alt="Alligator">
+  <p>
+    <small>*not part of this assignment</small>
+  </p>
+  <p class="mt-5">
+    <a
+      href="<?= $this->url('photo-gallery') ?>"
+      class="btn btn-primary btn-lg"
+      role="button"
+      aria-pressed="true"
+    >
+      Back to the gallery!
+    </a>
+  </p>
+</div>
